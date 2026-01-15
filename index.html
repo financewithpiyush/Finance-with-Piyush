@@ -1,0 +1,1166 @@
+<!doctype html>
+<html lang="en" class="h-full">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Finance A-Z | Simplifying Finance</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="/_sdk/element_sdk.js"></script>
+  <script src="/_sdk/data_sdk.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet">
+  <style>
+    body {
+      box-sizing: border-box;
+    }
+    
+    * {
+      font-family: 'Inter', sans-serif;
+    }
+    
+    h1, h2, h3, h4, h5, h6, .heading {
+      font-family: 'Space Grotesk', sans-serif;
+    }
+    
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    
+    ::-webkit-scrollbar-track {
+      background: #0a0a0f;
+    }
+    
+    ::-webkit-scrollbar-thumb {
+      background: #00f5a0;
+      border-radius: 4px;
+    }
+    
+    .gradient-text {
+      background: linear-gradient(135deg, #00f5a0 0%, #00d9f5 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    .card-glow {
+      box-shadow: 0 0 0 1px rgba(0, 245, 160, 0.1);
+      transition: all 0.3s ease;
+    }
+    
+    .card-glow:hover {
+      box-shadow: 0 0 30px rgba(0, 245, 160, 0.2), 0 0 0 1px rgba(0, 245, 160, 0.3);
+      transform: translateY(-4px);
+    }
+    
+    .letter-card {
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .letter-card:hover {
+      transform: scale(1.05);
+    }
+    
+    .letter-card.completed {
+      background: linear-gradient(135deg, rgba(0, 245, 160, 0.2) 0%, rgba(0, 217, 245, 0.1) 100%);
+      border-color: #00f5a0;
+    }
+    
+    .progress-bar {
+      background: linear-gradient(90deg, #00f5a0, #00d9f5);
+    }
+    
+    .btn-primary {
+      background: linear-gradient(135deg, #00f5a0 0%, #00d9f5 100%);
+      transition: all 0.3s ease;
+    }
+    
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 40px rgba(0, 245, 160, 0.3);
+    }
+    
+    .btn-secondary {
+      border: 1px solid rgba(0, 245, 160, 0.5);
+      transition: all 0.3s ease;
+    }
+    
+    .btn-secondary:hover {
+      background: rgba(0, 245, 160, 0.1);
+      border-color: #00f5a0;
+    }
+    
+    .animate-float {
+      animation: float 6s ease-in-out infinite;
+    }
+    
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-20px); }
+    }
+    
+    .animate-pulse-glow {
+      animation: pulse-glow 2s ease-in-out infinite;
+    }
+    
+    @keyframes pulse-glow {
+      0%, 100% { box-shadow: 0 0 20px rgba(0, 245, 160, 0.3); }
+      50% { box-shadow: 0 0 40px rgba(0, 245, 160, 0.6); }
+    }
+    
+    .stagger-1 { animation-delay: 0.1s; }
+    .stagger-2 { animation-delay: 0.2s; }
+    .stagger-3 { animation-delay: 0.3s; }
+    .stagger-4 { animation-delay: 0.4s; }
+    
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeIn 0.6s ease forwards;
+    }
+    
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    .number-counter {
+      font-variant-numeric: tabular-nums;
+    }
+    
+    .glass-card {
+      background: rgba(15, 15, 25, 0.8);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+    
+    .nav-blur {
+      background: rgba(10, 10, 15, 0.9);
+      backdrop-filter: blur(20px);
+    }
+    
+    input[type="range"] {
+      -webkit-appearance: none;
+      background: rgba(0, 245, 160, 0.2);
+      border-radius: 5px;
+      height: 6px;
+    }
+    
+    input[type="range"]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 18px;
+      height: 18px;
+      background: linear-gradient(135deg, #00f5a0, #00d9f5);
+      border-radius: 50%;
+      cursor: pointer;
+    }
+    
+    .modal-overlay {
+      background: rgba(0, 0, 0, 0.8);
+      backdrop-filter: blur(10px);
+    }
+    
+    .quiz-option {
+      transition: all 0.3s ease;
+    }
+    
+    .quiz-option:hover {
+      background: rgba(0, 245, 160, 0.1);
+      border-color: rgba(0, 245, 160, 0.5);
+    }
+    
+    .quiz-option.selected {
+      background: rgba(0, 245, 160, 0.2);
+      border-color: #00f5a0;
+    }
+    
+    .quiz-option.correct {
+      background: rgba(0, 245, 160, 0.3);
+      border-color: #00f5a0;
+    }
+    
+    .quiz-option.incorrect {
+      background: rgba(245, 0, 87, 0.3);
+      border-color: #f50057;
+    }
+  </style>
+  <style>@view-transition { navigation: auto; }</style>
+ </head>
+ <body class="h-full bg-[#0a0a0f] text-white overflow-auto">
+  <div id="app" class="w-full min-h-full"><!-- Navigation -->
+   <nav class="nav-blur fixed top-0 left-0 right-0 z-50 border-b border-white/5">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between"><a href="#" class="flex items-center gap-2">
+      <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-[#00f5a0] to-[#00d9f5] flex items-center justify-center"><span class="text-black font-bold text-lg heading">F</span>
+      </div><span class="heading font-bold text-xl">Finance<span class="gradient-text">A-Z</span></span> </a>
+     <div class="hidden md:flex items-center gap-8"><a href="#learn" class="text-gray-400 hover:text-white transition-colors text-sm">Learn</a> <a href="#calculators" class="text-gray-400 hover:text-white transition-colors text-sm">Calculators</a> <a href="#quiz" class="text-gray-400 hover:text-white transition-colors text-sm">Quiz</a> <a href="#about" class="text-gray-400 hover:text-white transition-colors text-sm">About</a> <a href="#connect" class="btn-primary px-5 py-2 rounded-full text-black font-semibold text-sm">Subscribe</a>
+     </div><button id="mobile-menu-btn" class="md:hidden text-white">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+      </svg></button>
+    </div>
+   </nav><!-- Mobile Menu -->
+   <div id="mobile-menu" class="fixed inset-0 z-40 bg-[#0a0a0f] hidden flex-col pt-20 px-6"><a href="#learn" class="py-4 text-xl border-b border-white/10">Learn Finance A-Z</a> <a href="#calculators" class="py-4 text-xl border-b border-white/10">Calculators</a> <a href="#quiz" class="py-4 text-xl border-b border-white/10">Take Quiz</a> <a href="#about" class="py-4 text-xl border-b border-white/10">About Me</a> <a href="#connect" class="btn-primary mt-6 py-3 rounded-full text-black font-semibold text-center">Subscribe</a>
+   </div><!-- Hero Section -->
+   <section class="relative min-h-screen flex items-center pt-20 overflow-hidden"><!-- Background Elements -->
+    <div class="absolute inset-0 overflow-hidden">
+     <div class="absolute top-20 left-10 w-72 h-72 bg-[#00f5a0]/10 rounded-full blur-3xl animate-float"></div>
+     <div class="absolute bottom-20 right-10 w-96 h-96 bg-[#00d9f5]/10 rounded-full blur-3xl animate-float stagger-2"></div>
+     <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-[#00f5a0]/5 to-[#00d9f5]/5 rounded-full blur-3xl"></div><!-- Grid Pattern -->
+     <div class="absolute inset-0 opacity-20" style="background-image: linear-gradient(rgba(0,245,160,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(0,245,160,0.1) 1px, transparent 1px); background-size: 50px 50px;"></div>
+    </div>
+    <div class="relative z-10 max-w-7xl mx-auto px-6 py-20 grid lg:grid-cols-2 gap-12 items-center">
+     <div class="fade-in">
+      <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 mb-6"><span class="w-2 h-2 rounded-full bg-[#00f5a0] animate-pulse"></span> <span class="text-sm text-gray-400">Finance Education for Everyone</span>
+      </div>
+      <h1 id="hero-headline" class="heading text-5xl md:text-7xl font-bold leading-tight mb-6">Simplifying Finance from <span class="gradient-text">A to Z</span></h1>
+      <p id="hero-subheadline" class="text-xl text-gray-400 leading-relaxed mb-8 max-w-xl">Helping students understand money, markets, and mindset in the simplest way.</p>
+      <div class="flex flex-wrap gap-4 mb-12"><a href="#learn" class="btn-primary px-8 py-4 rounded-full text-black font-semibold flex items-center gap-2"> <span>Start Finance A-Z</span>
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+        </svg></a> <a href="#content" class="btn-secondary px-8 py-4 rounded-full text-white font-semibold flex items-center gap-2">
+        <svg class="w-5 h-5 text-[#00f5a0]" fill="currentColor" viewbox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814z" /> <path fill="#0a0a0f" d="M9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+        </svg><span>Watch on YouTube</span> </a>
+      </div><!-- Stats -->
+      <div class="grid grid-cols-3 gap-6">
+       <div class="fade-in stagger-1">
+        <div class="number-counter text-3xl font-bold gradient-text" data-target="26">
+         0
+        </div>
+        <div class="text-sm text-gray-500">
+         Finance Terms
+        </div>
+       </div>
+       <div class="fade-in stagger-2">
+        <div class="number-counter text-3xl font-bold gradient-text" data-target="100">
+         0
+        </div>
+        <div class="text-sm text-gray-500">
+         Video Lessons
+        </div>
+       </div>
+       <div class="fade-in stagger-3">
+        <div class="number-counter text-3xl font-bold gradient-text" data-target="3">
+         0
+        </div>
+        <div class="text-sm text-gray-500">
+         Calculators
+        </div>
+       </div>
+      </div>
+     </div><!-- Profile Card -->
+     <div class="fade-in stagger-2 flex justify-center">
+      <div class="relative">
+       <div class="absolute inset-0 bg-gradient-to-r from-[#00f5a0] to-[#00d9f5] rounded-3xl blur-2xl opacity-30 animate-pulse-glow"></div>
+       <div class="relative glass-card rounded-3xl p-8 max-w-md"><!-- Profile Image Placeholder -->
+        <div class="w-48 h-48 mx-auto mb-6 rounded-2xl overflow-hidden border-2 border-[#00f5a0]/30 shadow-lg shadow-[#00f5a0]/10">
+ <img src="Piyushsharma.png" alt="Finance Educator" class="w-full h-full object-cover">
+</div>
+        <h3 class="heading text-2xl font-bold text-center mb-2">Finance Educator</h3>
+        <p class="text-[#00f5a0] text-center mb-4">Content Creator &amp; Aspiring Consultant</p>
+        <p class="text-gray-400 text-center text-sm leading-relaxed mb-6">"Explaining finance in simple words — one concept at a time."</p><!-- Social Links -->
+        <div class="flex justify-center gap-4">
+  <a href="https://www.youtube.com/@FinanceWith.Piyush" target="_blank" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-[#00f5a0]/20 transition-colors">
+    <svg class="w-5 h-5" fill="currentColor" viewbox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814z" /><path fill="#0a0a0f" d="M9.545 15.568V8.432L15.818 12l-6.273 3.568z" /></svg>
+  </a>
+
+  <a href="https://www.linkedin.com/in/piyush-sharma-a44748279/" target="_blank" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-[#00f5a0]/20 transition-colors">
+    <svg class="w-5 h-5" fill="currentColor" viewbox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" /></svg>
+  </a>
+
+  <a href="https://www.instagram.com/finance_with_piyush/" target="_blank" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-[#00f5a0]/20 transition-colors">
+    <svg class="w-5 h-5" fill="currentColor" viewbox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" /></svg>
+  </a>
+</div>       </div>
+      </div>
+     </div>
+    </div><!-- Scroll Indicator -->
+    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 animate-bounce"><span class="text-xs text-gray-500">Scroll to explore</span>
+     <svg class="w-6 h-6 text-[#00f5a0]" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+     </svg>
+    </div>
+   </section><!-- Progress Section -->
+   <section class="py-8 border-y border-white/5 bg-white/[0.02]">
+    <div class="max-w-7xl mx-auto px-6">
+     <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+      <div>
+       <h3 class="heading font-semibold text-lg">Your Learning Progress</h3>
+       <p class="text-gray-500 text-sm">Complete all 26 terms to master finance basics</p>
+      </div>
+      <div class="flex-1 max-w-md">
+       <div class="flex items-center justify-between text-sm mb-2"><span class="text-gray-400">Progress</span> <span id="progress-text" class="text-[#00f5a0] font-semibold">0 / 26 completed</span>
+       </div>
+       <div class="h-3 bg-white/5 rounded-full overflow-hidden">
+        <div id="progress-bar" class="progress-bar h-full rounded-full transition-all duration-500" style="width: 0%"></div>
+       </div>
+      </div>
+     </div>
+    </div>
+   </section><!-- Finance A-Z Section -->
+   <section id="learn" class="py-20">
+    <div class="max-w-7xl mx-auto px-6">
+     <div class="text-center mb-16"><span class="inline-block px-4 py-2 rounded-full bg-[#00f5a0]/10 text-[#00f5a0] text-sm font-medium mb-4">Interactive Learning</span>
+      <h2 class="heading text-4xl md:text-5xl font-bold mb-4">Finance <span class="gradient-text">A-Z</span></h2>
+      <p class="text-gray-400 max-w-2xl mx-auto">Click on any letter to learn essential finance terms. Each card reveals a detailed explanation with real-world examples.</p>
+     </div><!-- A-Z Grid -->
+     <div id="az-grid" class="grid grid-cols-4 sm:grid-cols-5 md:grid-cols-6 lg:grid-cols-7 gap-3 md:gap-4"><!-- Cards will be generated by JavaScript -->
+     </div>
+    </div>
+   </section><!-- Detail Modal -->
+   <div id="detail-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-4">
+    <div class="modal-overlay absolute inset-0" onclick="closeModal()"></div>
+    <div class="relative glass-card rounded-3xl max-w-2xl w-full max-h-[90%] overflow-y-auto"><button onclick="closeModal()" class="absolute top-4 right-4 w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-white/10 transition-colors">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+      </svg></button>
+     <div class="p-8">
+      <div class="flex items-center gap-4 mb-6">
+       <div id="modal-letter" class="w-16 h-16 rounded-2xl bg-gradient-to-br from-[#00f5a0] to-[#00d9f5] flex items-center justify-center text-3xl font-bold text-black heading">
+        A
+       </div>
+       <div>
+        <h3 id="modal-term" class="heading text-2xl font-bold">Term</h3>
+        <p id="modal-category" class="text-[#00f5a0] text-sm">Category</p>
+       </div>
+      </div>
+      <div class="space-y-6">
+       <div>
+        <h4 class="heading font-semibold text-lg mb-2 flex items-center gap-2">
+         <svg class="w-5 h-5 text-[#00f5a0]" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+         </svg> Definition</h4>
+        <p id="modal-definition" class="text-gray-400 leading-relaxed">Definition text</p>
+       </div>
+       <div>
+        <h4 class="heading font-semibold text-lg mb-2 flex items-center gap-2">
+         <svg class="w-5 h-5 text-[#00f5a0]" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+         </svg> Example</h4>
+        <p id="modal-example" class="text-gray-400 leading-relaxed">Example text</p>
+       </div><!-- Video Placeholder -->
+       <div class="rounded-2xl bg-white/5 aspect-video flex items-center justify-center border border-white/10">
+        <div class="text-center">
+         <div class="w-16 h-16 mx-auto rounded-full bg-[#00f5a0]/20 flex items-center justify-center mb-3">
+          <svg class="w-8 h-8 text-[#00f5a0]" fill="currentColor" viewbox="0 0 24 24"><path d="M8 5v14l11-7z" />
+          </svg>
+         </div>
+         <p class="text-gray-500 text-sm">Video lesson coming soon</p>
+        </div>
+       </div><button id="mark-complete-btn" onclick="toggleComplete()" class="w-full btn-primary py-4 rounded-xl text-black font-semibold flex items-center justify-center gap-2">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+        </svg> Mark as Complete </button>
+      </div>
+     </div>
+    </div>
+   </div><!-- Calculators Section -->
+   <section id="calculators" class="py-20 bg-gradient-to-b from-transparent via-[#00f5a0]/5 to-transparent">
+    <div class="max-w-7xl mx-auto px-6">
+     <div class="text-center mb-16"><span class="inline-block px-4 py-2 rounded-full bg-[#00f5a0]/10 text-[#00f5a0] text-sm font-medium mb-4">Tools</span>
+      <h2 class="heading text-4xl md:text-5xl font-bold mb-4">Finance <span class="gradient-text">Calculators</span></h2>
+      <p class="text-gray-400 max-w-2xl mx-auto">Plan your investments and loans with these simple calculators.</p>
+     </div>
+     <div class="grid md:grid-cols-3 gap-6"><!-- SIP Calculator -->
+      <div class="glass-card card-glow rounded-2xl p-6">
+       <div class="flex items-center gap-3 mb-6">
+        <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-[#00f5a0]/20 to-[#00d9f5]/20 flex items-center justify-center">
+         <svg class="w-6 h-6 text-[#00f5a0]" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+         </svg>
+        </div>
+        <div>
+         <h3 class="heading font-bold text-lg">SIP Calculator</h3>
+         <p class="text-gray-500 text-xs">Systematic Investment Plan</p>
+        </div>
+       </div>
+       <div class="space-y-5">
+        <div>
+         <div class="flex justify-between text-sm mb-2"><label class="text-gray-400" for="sip-amount">Monthly Investment</label> <span id="sip-amount-value" class="text-[#00f5a0] font-medium">₹5,000</span>
+         </div><input type="range" id="sip-amount" min="500" max="100000" value="5000" step="500" class="w-full" oninput="calculateSIP()">
+        </div>
+        <div>
+         <div class="flex justify-between text-sm mb-2"><label class="text-gray-400" for="sip-years">Time Period</label> <span id="sip-years-value" class="text-[#00f5a0] font-medium">10 years</span>
+         </div><input type="range" id="sip-years" min="1" max="30" value="10" class="w-full" oninput="calculateSIP()">
+        </div>
+        <div>
+         <div class="flex justify-between text-sm mb-2"><label class="text-gray-400" for="sip-rate">Expected Return</label> <span id="sip-rate-value" class="text-[#00f5a0] font-medium">12%</span>
+         </div><input type="range" id="sip-rate" min="1" max="30" value="12" class="w-full" oninput="calculateSIP()">
+        </div>
+        <div class="pt-4 border-t border-white/10">
+         <div class="flex justify-between mb-2"><span class="text-gray-400 text-sm">Invested Amount</span> <span id="sip-invested" class="font-medium">₹6,00,000</span>
+         </div>
+         <div class="flex justify-between mb-2"><span class="text-gray-400 text-sm">Est. Returns</span> <span id="sip-returns" class="font-medium text-[#00f5a0]">₹5,60,900</span>
+         </div>
+         <div class="flex justify-between pt-2 border-t border-white/10"><span class="font-semibold">Total Value</span> <span id="sip-total" class="font-bold text-xl gradient-text">₹11,60,900</span>
+         </div>
+        </div>
+       </div>
+      </div><!-- EMI Calculator -->
+      <div class="glass-card card-glow rounded-2xl p-6">
+       <div class="flex items-center gap-3 mb-6">
+        <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-[#00f5a0]/20 to-[#00d9f5]/20 flex items-center justify-center">
+         <svg class="w-6 h-6 text-[#00f5a0]" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z" />
+         </svg>
+        </div>
+        <div>
+         <h3 class="heading font-bold text-lg">EMI Calculator</h3>
+         <p class="text-gray-500 text-xs">Equated Monthly Installment</p>
+        </div>
+       </div>
+       <div class="space-y-5">
+        <div>
+         <div class="flex justify-between text-sm mb-2"><label class="text-gray-400" for="emi-principal">Loan Amount</label> <span id="emi-principal-value" class="text-[#00f5a0] font-medium">₹10,00,000</span>
+         </div><input type="range" id="emi-principal" min="100000" max="10000000" value="1000000" step="50000" class="w-full" oninput="calculateEMI()">
+        </div>
+        <div>
+         <div class="flex justify-between text-sm mb-2"><label class="text-gray-400" for="emi-tenure">Loan Tenure</label> <span id="emi-tenure-value" class="text-[#00f5a0] font-medium">5 years</span>
+         </div><input type="range" id="emi-tenure" min="1" max="30" value="5" class="w-full" oninput="calculateEMI()">
+        </div>
+        <div>
+         <div class="flex justify-between text-sm mb-2"><label class="text-gray-400" for="emi-rate">Interest Rate</label> <span id="emi-rate-value" class="text-[#00f5a0] font-medium">9%</span>
+         </div><input type="range" id="emi-rate" min="5" max="20" value="9" step="0.5" class="w-full" oninput="calculateEMI()">
+        </div>
+        <div class="pt-4 border-t border-white/10">
+         <div class="flex justify-between mb-2"><span class="text-gray-400 text-sm">Principal Amount</span> <span id="emi-loan" class="font-medium">₹10,00,000</span>
+         </div>
+         <div class="flex justify-between mb-2"><span class="text-gray-400 text-sm">Total Interest</span> <span id="emi-interest" class="font-medium text-red-400">₹2,45,800</span>
+         </div>
+         <div class="flex justify-between pt-2 border-t border-white/10"><span class="font-semibold">Monthly EMI</span> <span id="emi-monthly" class="font-bold text-xl gradient-text">₹20,763</span>
+         </div>
+        </div>
+       </div>
+      </div><!-- CAGR Calculator -->
+      <div class="glass-card card-glow rounded-2xl p-6">
+       <div class="flex items-center gap-3 mb-6">
+        <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-[#00f5a0]/20 to-[#00d9f5]/20 flex items-center justify-center">
+         <svg class="w-6 h-6 text-[#00f5a0]" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+         </svg>
+        </div>
+        <div>
+         <h3 class="heading font-bold text-lg">CAGR Calculator</h3>
+         <p class="text-gray-500 text-xs">Compound Annual Growth Rate</p>
+        </div>
+       </div>
+       <div class="space-y-5">
+        <div>
+         <div class="flex justify-between text-sm mb-2"><label class="text-gray-400" for="cagr-initial">Initial Investment</label> <span id="cagr-initial-value" class="text-[#00f5a0] font-medium">₹1,00,000</span>
+         </div><input type="range" id="cagr-initial" min="10000" max="10000000" value="100000" step="10000" class="w-full" oninput="calculateCAGR()">
+        </div>
+        <div>
+         <div class="flex justify-between text-sm mb-2"><label class="text-gray-400" for="cagr-final">Final Value</label> <span id="cagr-final-value" class="text-[#00f5a0] font-medium">₹2,50,000</span>
+         </div><input type="range" id="cagr-final" min="10000" max="10000000" value="250000" step="10000" class="w-full" oninput="calculateCAGR()">
+        </div>
+        <div>
+         <div class="flex justify-between text-sm mb-2"><label class="text-gray-400" for="cagr-years">Time Period</label> <span id="cagr-years-value" class="text-[#00f5a0] font-medium">5 years</span>
+         </div><input type="range" id="cagr-years" min="1" max="30" value="5" class="w-full" oninput="calculateCAGR()">
+        </div>
+        <div class="pt-4 border-t border-white/10">
+         <div class="flex justify-between mb-2"><span class="text-gray-400 text-sm">Total Returns</span> <span id="cagr-returns" class="font-medium text-[#00f5a0]">₹1,50,000</span>
+         </div>
+         <div class="flex justify-between mb-2"><span class="text-gray-400 text-sm">Return %</span> <span id="cagr-return-percent" class="font-medium">150%</span>
+         </div>
+         <div class="flex justify-between pt-2 border-t border-white/10"><span class="font-semibold">CAGR</span> <span id="cagr-result" class="font-bold text-xl gradient-text">20.11%</span>
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
+   </section><!-- Quiz Section -->
+   <section id="quiz" class="py-20">
+    <div class="max-w-3xl mx-auto px-6">
+     <div class="text-center mb-12"><span class="inline-block px-4 py-2 rounded-full bg-[#00f5a0]/10 text-[#00f5a0] text-sm font-medium mb-4">Test Yourself</span>
+      <h2 class="heading text-4xl md:text-5xl font-bold mb-4">Finance <span class="gradient-text">Quiz</span></h2>
+      <p class="text-gray-400">Test your knowledge with these quick finance questions!</p>
+     </div>
+     <div id="quiz-container" class="glass-card rounded-3xl p-8">
+      <div id="quiz-progress" class="flex items-center gap-2 mb-6"><span class="text-sm text-gray-400">Question</span> <span id="quiz-current" class="text-[#00f5a0] font-bold">1</span> <span class="text-gray-600">/</span> <span id="quiz-total" class="text-gray-400">5</span>
+      </div>
+      <h3 id="quiz-question" class="heading text-xl md:text-2xl font-bold mb-8">What does SIP stand for?</h3>
+      <div id="quiz-options" class="space-y-3 mb-8"><!-- Options will be generated by JS -->
+      </div>
+      <div class="flex justify-between items-center"><button id="quiz-prev" onclick="prevQuestion()" class="btn-secondary px-6 py-3 rounded-xl flex items-center gap-2 disabled:opacity-50" disabled>
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+        </svg> Previous </button> <button id="quiz-next" onclick="nextQuestion()" class="btn-primary px-6 py-3 rounded-xl text-black font-semibold flex items-center gap-2"> Next 
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+        </svg></button>
+      </div>
+     </div><!-- Quiz Results -->
+     <div id="quiz-results" class="glass-card rounded-3xl p-8 text-center hidden">
+      <div class="w-24 h-24 mx-auto mb-6 rounded-full bg-gradient-to-br from-[#00f5a0] to-[#00d9f5] flex items-center justify-center">
+       <svg class="w-12 h-12 text-black" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+       </svg>
+      </div>
+      <h3 class="heading text-3xl font-bold mb-2">Quiz Complete!</h3>
+      <p class="text-gray-400 mb-6">You've tested your finance knowledge</p>
+      <div class="text-5xl font-bold gradient-text mb-2"><span id="quiz-score">4</span>/<span>5</span>
+      </div>
+      <p class="text-gray-500 mb-8">Questions answered correctly</p><button onclick="restartQuiz()" class="btn-primary px-8 py-4 rounded-xl text-black font-semibold"> Try Again </button>
+     </div>
+    </div>
+   </section><!-- Content Section -->
+   <section id="content" class="py-20 bg-gradient-to-b from-transparent via-[#00d9f5]/5 to-transparent">
+    <div class="max-w-7xl mx-auto px-6">
+     <div class="text-center mb-16"><span class="inline-block px-4 py-2 rounded-full bg-[#00f5a0]/10 text-[#00f5a0] text-sm font-medium mb-4">Content</span>
+      <h2 class="heading text-4xl md:text-5xl font-bold mb-4">Latest <span class="gradient-text">Videos</span></h2>
+      <p class="text-gray-400 max-w-2xl mx-auto">Explaining finance in simple words — one concept at a time.</p>
+     </div>
+     <div class="grid md:grid-cols-3 gap-6 mb-12"><!-- Video Card 1 -->
+      <div class="glass-card card-glow rounded-2xl overflow-hidden group">
+       <div class="aspect-video bg-gradient-to-br from-[#00f5a0]/10 to-[#00d9f5]/10 relative flex items-center justify-center">
+        <div class="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+         <div class="w-16 h-16 rounded-full bg-[#00f5a0] flex items-center justify-center transform scale-90 group-hover:scale-100 transition-transform">
+          <svg class="w-8 h-8 text-black ml-1" fill="currentColor" viewbox="0 0 24 24"><path d="M8 5v14l11-7z" />
+          </svg>
+         </div>
+        </div>
+        <div class="text-center p-6">
+         <div class="w-16 h-16 mx-auto rounded-full bg-white/5 flex items-center justify-center mb-3"><span class="text-3xl">📈</span>
+         </div><span class="text-gray-500 text-sm">Video Coming Soon</span>
+        </div>
+       </div>
+       <div class="p-5">
+        <h4 class="heading font-semibold mb-2">Introduction to Stock Market</h4>
+        <p class="text-gray-500 text-sm">Learn the basics of how stock markets work and how to start investing.</p>
+       </div>
+      </div><!-- Video Card 2 -->
+      <div class="glass-card card-glow rounded-2xl overflow-hidden group">
+       <div class="aspect-video bg-gradient-to-br from-[#00f5a0]/10 to-[#00d9f5]/10 relative flex items-center justify-center">
+        <div class="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+         <div class="w-16 h-16 rounded-full bg-[#00f5a0] flex items-center justify-center transform scale-90 group-hover:scale-100 transition-transform">
+          <svg class="w-8 h-8 text-black ml-1" fill="currentColor" viewbox="0 0 24 24"><path d="M8 5v14l11-7z" />
+          </svg>
+         </div>
+        </div>
+        <div class="text-center p-6">
+         <div class="w-16 h-16 mx-auto rounded-full bg-white/5 flex items-center justify-center mb-3"><span class="text-3xl">💰</span>
+         </div><span class="text-gray-500 text-sm">Video Coming Soon</span>
+        </div>
+       </div>
+       <div class="p-5">
+        <h4 class="heading font-semibold mb-2">Power of Compound Interest</h4>
+        <p class="text-gray-500 text-sm">Discover why compound interest is called the eighth wonder of the world.</p>
+       </div>
+      </div><!-- Video Card 3 -->
+      <div class="glass-card card-glow rounded-2xl overflow-hidden group">
+       <div class="aspect-video bg-gradient-to-br from-[#00f5a0]/10 to-[#00d9f5]/10 relative flex items-center justify-center">
+        <div class="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+         <div class="w-16 h-16 rounded-full bg-[#00f5a0] flex items-center justify-center transform scale-90 group-hover:scale-100 transition-transform">
+          <svg class="w-8 h-8 text-black ml-1" fill="currentColor" viewbox="0 0 24 24"><path d="M8 5v14l11-7z" />
+          </svg>
+         </div>
+        </div>
+        <div class="text-center p-6">
+         <div class="w-16 h-16 mx-auto rounded-full bg-white/5 flex items-center justify-center mb-3"><span class="text-3xl">🎯</span>
+         </div><span class="text-gray-500 text-sm">Video Coming Soon</span>
+        </div>
+       </div>
+       <div class="p-5">
+        <h4 class="heading font-semibold mb-2">Setting Financial Goals</h4>
+        <p class="text-gray-500 text-sm">How to set SMART financial goals and actually achieve them.</p>
+       </div>
+      </div>
+     </div>
+     <div class="text-center"><a href="#" target="_blank" rel="noopener noreferrer" class="btn-secondary px-8 py-4 rounded-full inline-flex items-center gap-3 hover:bg-[#00f5a0]/10">
+       <svg class="w-6 h-6 text-[#00f5a0]" fill="currentColor" viewbox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814z" /> <path fill="#0a0a0f" d="M9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+       </svg><span>Subscribe on YouTube</span> </a>
+     </div>
+    </div>
+   </section><!-- About Section -->
+   <section id="about" class="py-20">
+    <div class="max-w-7xl mx-auto px-6">
+     <div class="grid lg:grid-cols-2 gap-12 items-center">
+      <div><span class="inline-block px-4 py-2 rounded-full bg-[#00f5a0]/10 text-[#00f5a0] text-sm font-medium mb-4">About</span>
+       <h2 id="about-title" class="heading text-4xl md:text-5xl font-bold mb-6">About <span class="gradient-text">Me</span></h2>
+       <p id="about-bio" class="text-gray-400 text-lg leading-relaxed mb-6">Finance enthusiast, aspiring consultant, creating educational finance content for students and beginners. My mission is to make complex financial concepts accessible and engaging for everyone.</p>
+       <div class="space-y-4 mb-8">
+        <div class="flex items-center gap-3">
+         <div class="w-10 h-10 rounded-lg bg-[#00f5a0]/10 flex items-center justify-center">
+          <svg class="w-5 h-5 text-[#00f5a0]" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+          </svg>
+         </div><span class="text-gray-300">Finance Student &amp; Continuous Learner</span>
+        </div>
+        <div class="flex items-center gap-3">
+         <div class="w-10 h-10 rounded-lg bg-[#00f5a0]/10 flex items-center justify-center">
+          <svg class="w-5 h-5 text-[#00f5a0]" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
+          </svg>
+         </div><span class="text-gray-300">Content Creator &amp; Educator</span>
+        </div>
+        <div class="flex items-center gap-3">
+         <div class="w-10 h-10 rounded-lg bg-[#00f5a0]/10 flex items-center justify-center">
+          <svg class="w-5 h-5 text-[#00f5a0]" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+          </svg>
+         </div><span class="text-gray-300">Aspiring Finance Consultant</span>
+        </div>
+       </div>
+      </div>
+      <div class="relative">
+       <div class="absolute inset-0 bg-gradient-to-r from-[#00f5a0]/20 to-[#00d9f5]/20 rounded-3xl blur-3xl"></div>
+       <div class="relative glass-card rounded-3xl p-8">
+        <div class="text-center mb-8">
+         <div class="text-6xl mb-4">
+          🎯
+         </div>
+         <h3 class="heading text-2xl font-bold mb-2">My Mission</h3>
+         <p class="text-gray-400">Making finance education accessible, engaging, and practical for every student and beginner.</p>
+        </div>
+        <div class="grid grid-cols-2 gap-4">
+         <div class="bg-white/5 rounded-xl p-4 text-center">
+          <div class="text-3xl font-bold gradient-text mb-1">
+           26
+          </div>
+          <div class="text-gray-500 text-sm">
+           Finance Terms
+          </div>
+         </div>
+         <div class="bg-white/5 rounded-xl p-4 text-center">
+          <div class="text-3xl font-bold gradient-text mb-1">
+           ∞
+          </div>
+          <div class="text-gray-500 text-sm">
+           Learning Never Stops
+          </div>
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
+   </section><!-- Newsletter Section -->
+   <section id="connect" class="py-20 bg-gradient-to-b from-transparent via-[#00f5a0]/5 to-transparent">
+    <div class="max-w-4xl mx-auto px-6 text-center">
+     <div class="glass-card rounded-3xl p-8 md:p-12">
+      <div class="w-20 h-20 mx-auto mb-6 rounded-full bg-gradient-to-br from-[#00f5a0] to-[#00d9f5] flex items-center justify-center animate-pulse-glow">
+       <svg class="w-10 h-10 text-black" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+       </svg>
+      </div>
+      <h2 id="newsletter-title" class="heading text-3xl md:text-4xl font-bold mb-4">Learn Finance Weekly</h2>
+      <p class="text-gray-400 mb-8 max-w-lg mx-auto">No spam, only value. Get weekly finance tips, insights, and updates delivered straight to your inbox.</p>
+      <form id="newsletter-form" class="flex flex-col sm:flex-row gap-4 max-w-md mx-auto mb-8"><label for="newsletter-email" class="sr-only">Email address</label> <input type="email" id="newsletter-email" placeholder="Enter your email" required class="flex-1 px-6 py-4 rounded-xl bg-white/5 border border-white/10 focus:border-[#00f5a0] focus:outline-none transition-colors"> <button type="submit" id="newsletter-btn" class="btn-primary px-8 py-4 rounded-xl text-black font-semibold whitespace-nowrap"> Subscribe </button>
+      </form>
+      <div id="newsletter-success" class="hidden text-[#00f5a0] mb-8">
+       <svg class="w-6 h-6 mx-auto mb-2" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+       </svg>
+       <p>Thanks for subscribing! Check your inbox soon.</p>
+      </div>
+      <div class="flex flex-wrap justify-center gap-4"><a href="#" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 px-6 py-3 rounded-full bg-white/5 hover:bg-white/10 transition-colors">
+        <svg class="w-5 h-5 text-[#00f5a0]" fill="currentColor" viewbox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814z" /> <path fill="#0a0a0f" d="M9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+        </svg> YouTube </a> <a href="#" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 px-6 py-3 rounded-full bg-white/5 hover:bg-white/10 transition-colors">
+        <svg class="w-5 h-5 text-[#00f5a0]" fill="currentColor" viewbox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+        </svg> LinkedIn </a> <a href="#" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 px-6 py-3 rounded-full bg-white/5 hover:bg-white/10 transition-colors">
+        <svg class="w-5 h-5 text-[#00f5a0]" fill="currentColor" viewbox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+        </svg> Instagram </a>
+      </div>
+     </div>
+    </div>
+   </section><!-- Footer -->
+   <footer class="py-8 border-t border-white/5">
+    <div class="max-w-7xl mx-auto px-6">
+     <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+      <div class="flex items-center gap-2">
+       <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-[#00f5a0] to-[#00d9f5] flex items-center justify-center"><span class="text-black font-bold text-sm heading">F</span>
+       </div><span class="heading font-bold">Finance<span class="gradient-text">A-Z</span></span>
+      </div>
+      <p class="text-gray-500 text-sm">© 2024 Finance A-Z. Made with 💚 for financial literacy.</p>
+     </div>
+    </div>
+   </footer><!-- Toast Notification -->
+   <div id="toast" class="fixed bottom-4 right-4 z-50 glass-card rounded-xl px-6 py-4 transform translate-y-20 opacity-0 transition-all duration-300">
+    <div class="flex items-center gap-3">
+     <svg class="w-5 h-5 text-[#00f5a0]" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+     </svg><span id="toast-message">Success!</span>
+    </div>
+   </div>
+  </div>
+  <script>
+    // Finance A-Z Data
+    const financeTerms = {
+      A: { term: 'Appreciation', category: 'Investment', definition: 'An increase in the value of an asset over time. When your investment grows in value, it appreciates.', example: 'If you buy a stock for ₹100 and it becomes worth ₹150, it has appreciated by 50%.' },
+      B: { term: 'Bonds', category: 'Investment', definition: 'A debt security where you lend money to an entity (government or corporation) in exchange for periodic interest payments and return of principal at maturity.', example: 'Government bonds are considered safe investments. A 10-year bond might pay 7% interest annually.' },
+      C: { term: 'Compound Interest', category: 'Banking', definition: 'Interest calculated on both the initial principal and the accumulated interest from previous periods. The "interest on interest" effect.', example: '₹10,000 at 10% compound interest becomes ₹11,000 after year 1, then ₹12,100 after year 2.' },
+      D: { term: 'Diversification', category: 'Strategy', definition: 'Spreading investments across different assets to reduce risk. "Don\'t put all your eggs in one basket."', example: 'Instead of investing all in stocks, spread across stocks, bonds, gold, and real estate.' },
+      E: { term: 'Equity', category: 'Investment', definition: 'Ownership interest in a company, typically through stocks. Also refers to the value of ownership minus debts.', example: 'If your home is worth ₹50 lakhs and you owe ₹20 lakhs, your home equity is ₹30 lakhs.' },
+      F: { term: 'Fixed Deposit', category: 'Banking', definition: 'A savings instrument where you deposit a lump sum for a fixed period at a predetermined interest rate.', example: 'A 1-year FD at 7% means ₹1,00,000 becomes ₹1,07,000 after one year.' },
+      G: { term: 'GDP', category: 'Economics', definition: 'Gross Domestic Product - the total value of goods and services produced by a country in a specific period.', example: 'India\'s GDP growth of 7% means the economy produced 7% more than the previous year.' },
+      H: { term: 'Hedge Fund', category: 'Investment', definition: 'A pooled investment fund that uses various strategies to earn returns for investors, often with higher risk and fees.', example: 'Hedge funds might short stocks, use leverage, or invest in derivatives.' },
+      I: { term: 'Inflation', category: 'Economics', definition: 'The rate at which the general price level rises, reducing purchasing power over time.', example: 'At 6% inflation, something costing ₹100 today will cost ₹106 next year.' },
+      J: { term: 'Joint Account', category: 'Banking', definition: 'A bank account shared by two or more individuals with equal rights to deposits and withdrawals.', example: 'Couples often open joint accounts to manage household expenses together.' },
+      K: { term: 'KYC', category: 'Regulation', definition: 'Know Your Customer - the process of verifying customer identity to prevent fraud and money laundering.', example: 'Opening a bank account requires KYC documents like Aadhaar and PAN card.' },
+      L: { term: 'Liquidity', category: 'Finance', definition: 'How quickly an asset can be converted to cash without significantly affecting its price.', example: 'Cash is most liquid, while real estate is less liquid as selling takes time.' },
+      M: { term: 'Mutual Fund', category: 'Investment', definition: 'A pooled investment vehicle managed by professionals, investing in stocks, bonds, or other securities.', example: 'Investing ₹5,000/month in an equity mutual fund via SIP is a popular strategy.' },
+      N: { term: 'NAV', category: 'Investment', definition: 'Net Asset Value - the per-unit price of a mutual fund, calculated by dividing total assets minus liabilities by units.', example: 'If a fund has ₹100 crore assets and 10 crore units, NAV is ₹10.' },
+      O: { term: 'Overdraft', category: 'Banking', definition: 'A credit facility allowing you to withdraw more than your account balance, up to an approved limit.', example: 'With ₹50,000 overdraft limit, you can withdraw even with zero balance, paying interest on the borrowed amount.' },
+      P: { term: 'Portfolio', category: 'Investment', definition: 'A collection of all your investments including stocks, bonds, mutual funds, and other assets.', example: 'A balanced portfolio might be 60% stocks, 30% bonds, 10% gold.' },
+      Q: { term: 'Quantitative Easing', category: 'Economics', definition: 'A monetary policy where central banks inject money into the economy by purchasing securities.', example: 'RBI might buy government bonds to increase money supply during economic slowdowns.' },
+      R: { term: 'Return on Investment', category: 'Finance', definition: 'A measure of profit or loss relative to the amount invested, expressed as a percentage.', example: 'Investing ₹1,00,000 and earning ₹20,000 profit gives ROI of 20%.' },
+      S: { term: 'SIP', category: 'Investment', definition: 'Systematic Investment Plan - investing a fixed amount regularly in mutual funds, regardless of market conditions.', example: 'Investing ₹5,000 every month in an index fund through SIP.' },
+      T: { term: 'Tax Deduction', category: 'Taxation', definition: 'Expenses that can be subtracted from taxable income, reducing the overall tax liability.', example: 'Section 80C allows deductions up to ₹1.5 lakhs for investments like ELSS, PPF.' },
+      U: { term: 'Underwriting', category: 'Insurance', definition: 'The process of evaluating risk to determine insurance premiums or loan terms.', example: 'Insurance companies underwrite policies based on age, health, and lifestyle.' },
+      V: { term: 'Volatility', category: 'Investment', definition: 'The degree of price fluctuation of a security over time. High volatility means bigger price swings.', example: 'Small-cap stocks are more volatile than large-cap blue chips.' },
+      W: { term: 'Wealth Management', category: 'Finance', definition: 'Comprehensive financial planning and investment management for high-net-worth individuals.', example: 'Services include tax planning, estate planning, and portfolio management.' },
+      X: { term: 'Ex-Dividend', category: 'Investment', definition: 'A stock trading without the right to receive the next dividend payment.', example: 'If you buy shares after the ex-dividend date, you won\'t receive the upcoming dividend.' },
+      Y: { term: 'Yield', category: 'Investment', definition: 'The income return on an investment, typically expressed as an annual percentage.', example: 'A bond with ₹70 annual interest on ₹1,000 face value has 7% yield.' },
+      Z: { term: 'Zero-Coupon Bond', category: 'Investment', definition: 'A bond that pays no periodic interest but is sold at a discount and redeemed at face value.', example: 'Buy a bond for ₹7,000 today, receive ₹10,000 at maturity in 5 years.' }
+    };
+
+    // Quiz Questions
+    const quizQuestions = [
+      { question: 'What does SIP stand for?', options: ['Systematic Investment Plan', 'Simple Interest Payment', 'Stock Investment Program', 'Savings Interest Plan'], correct: 0 },
+      { question: 'What is compound interest?', options: ['Interest on principal only', 'Interest on interest and principal', 'Fixed interest rate', 'No interest'], correct: 1 },
+      { question: 'What does diversification help reduce?', options: ['Returns', 'Risk', 'Taxes', 'Inflation'], correct: 1 },
+      { question: 'What is NAV in mutual funds?', options: ['National Asset Value', 'Net Asset Value', 'New Account Value', 'Nominal Annual Value'], correct: 1 },
+      { question: 'What does KYC stand for?', options: ['Keep Your Cash', 'Know Your Customer', 'Key Year Calculation', 'Kind Year Compliance'], correct: 1 }
+    ];
+
+    // State
+    let completedTerms = new Set();
+    let currentLetter = 'A';
+    let currentQuizIndex = 0;
+    let quizAnswers = [];
+    let config = {};
+    let dataRecords = [];
+
+    // Default config
+    const defaultConfig = {
+      hero_headline: 'Simplifying Finance from A to Z',
+      hero_subheadline: 'Helping students understand money, markets, and mindset in the simplest way.',
+      about_title: 'About Me',
+      about_bio: 'Finance enthusiast, aspiring consultant, creating educational finance content for students and beginners. My mission is to make complex financial concepts accessible and engaging for everyone.',
+      newsletter_title: 'Learn Finance Weekly',
+      background_color: '#0a0a0f',
+      surface_color: '#0f0f19',
+      text_color: '#ffffff',
+      primary_action: '#00f5a0',
+      secondary_action: '#00d9f5'
+    };
+
+    // Data Handler for persistence
+    const dataHandler = {
+      onDataChanged(data) {
+        dataRecords = data;
+        completedTerms.clear();
+        
+        data.forEach(record => {
+          if (record.letter && record.completed) {
+            completedTerms.add(record.letter);
+          }
+        });
+        
+        updateProgress();
+        renderAZGrid();
+      }
+    };
+
+    // Initialize Data SDK
+    async function initDataSdk() {
+      if (window.dataSdk) {
+        const result = await window.dataSdk.init(dataHandler);
+        if (!result.isOk) {
+          console.error('Failed to initialize data SDK');
+        }
+      }
+    }
+
+    // Element SDK Handler
+    async function onConfigChange(cfg) {
+      config = cfg;
+      
+      const headline = document.getElementById('hero-headline');
+      if (headline) {
+        headline.innerHTML = (cfg.hero_headline || defaultConfig.hero_headline).replace('A to Z', '<span class="gradient-text">A to Z</span>');
+      }
+      
+      const subheadline = document.getElementById('hero-subheadline');
+      if (subheadline) {
+        subheadline.textContent = cfg.hero_subheadline || defaultConfig.hero_subheadline;
+      }
+      
+      const aboutTitle = document.getElementById('about-title');
+      if (aboutTitle) {
+        aboutTitle.innerHTML = (cfg.about_title || defaultConfig.about_title).replace('Me', '<span class="gradient-text">Me</span>');
+      }
+      
+      const aboutBio = document.getElementById('about-bio');
+      if (aboutBio) {
+        aboutBio.textContent = cfg.about_bio || defaultConfig.about_bio;
+      }
+      
+      const newsletterTitle = document.getElementById('newsletter-title');
+      if (newsletterTitle) {
+        newsletterTitle.textContent = cfg.newsletter_title || defaultConfig.newsletter_title;
+      }
+    }
+
+    // Initialize Element SDK
+    function initElementSdk() {
+      if (window.elementSdk) {
+        window.elementSdk.init({
+          defaultConfig,
+          onConfigChange,
+          mapToCapabilities: (cfg) => ({
+            recolorables: [
+              {
+                get: () => cfg.background_color || defaultConfig.background_color,
+                set: (v) => { cfg.background_color = v; window.elementSdk.setConfig({ background_color: v }); }
+              },
+              {
+                get: () => cfg.surface_color || defaultConfig.surface_color,
+                set: (v) => { cfg.surface_color = v; window.elementSdk.setConfig({ surface_color: v }); }
+              },
+              {
+                get: () => cfg.text_color || defaultConfig.text_color,
+                set: (v) => { cfg.text_color = v; window.elementSdk.setConfig({ text_color: v }); }
+              },
+              {
+                get: () => cfg.primary_action || defaultConfig.primary_action,
+                set: (v) => { cfg.primary_action = v; window.elementSdk.setConfig({ primary_action: v }); }
+              },
+              {
+                get: () => cfg.secondary_action || defaultConfig.secondary_action,
+                set: (v) => { cfg.secondary_action = v; window.elementSdk.setConfig({ secondary_action: v }); }
+              }
+            ],
+            borderables: [],
+            fontEditable: undefined,
+            fontSizeable: undefined
+          }),
+          mapToEditPanelValues: (cfg) => new Map([
+            ['hero_headline', cfg.hero_headline || defaultConfig.hero_headline],
+            ['hero_subheadline', cfg.hero_subheadline || defaultConfig.hero_subheadline],
+            ['about_title', cfg.about_title || defaultConfig.about_title],
+            ['about_bio', cfg.about_bio || defaultConfig.about_bio],
+            ['newsletter_title', cfg.newsletter_title || defaultConfig.newsletter_title]
+          ])
+        });
+      }
+    }
+
+    // Render A-Z Grid
+    function renderAZGrid() {
+      const grid = document.getElementById('az-grid');
+      if (!grid) return;
+      
+      grid.innerHTML = '';
+      
+      Object.keys(financeTerms).forEach(letter => {
+        const term = financeTerms[letter];
+        const isCompleted = completedTerms.has(letter);
+        
+        const card = document.createElement('div');
+        card.className = `letter-card cursor-pointer rounded-xl p-4 bg-white/5 border border-white/10 text-center group ${isCompleted ? 'completed' : ''}`;
+        card.onclick = () => openModal(letter);
+        
+        card.innerHTML = `
+          <div class="text-2xl md:text-3xl font-bold heading mb-1 ${isCompleted ? 'gradient-text' : 'group-hover:text-[#00f5a0] transition-colors'}">${letter}</div>
+          <div class="text-xs text-gray-500 truncate">${term.term}</div>
+          ${isCompleted ? '<div class="mt-2"><svg class="w-4 h-4 mx-auto text-[#00f5a0]" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg></div>' : ''}
+        `;
+        
+        grid.appendChild(card);
+      });
+    }
+
+    // Open Modal
+    function openModal(letter) {
+      currentLetter = letter;
+      const term = financeTerms[letter];
+      const modal = document.getElementById('detail-modal');
+      
+      document.getElementById('modal-letter').textContent = letter;
+      document.getElementById('modal-term').textContent = term.term;
+      document.getElementById('modal-category').textContent = term.category;
+      document.getElementById('modal-definition').textContent = term.definition;
+      document.getElementById('modal-example').textContent = term.example;
+      
+      const btn = document.getElementById('mark-complete-btn');
+      if (completedTerms.has(letter)) {
+        btn.innerHTML = `<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg> Mark as Incomplete`;
+        btn.classList.remove('btn-primary');
+        btn.classList.add('btn-secondary', 'text-white');
+      } else {
+        btn.innerHTML = `<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> Mark as Complete`;
+        btn.classList.add('btn-primary');
+        btn.classList.remove('btn-secondary', 'text-white');
+      }
+      
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+    }
+
+    // Close Modal
+    function closeModal() {
+      const modal = document.getElementById('detail-modal');
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+    }
+
+    // Toggle Complete
+    async function toggleComplete() {
+      if (!window.dataSdk) return;
+      
+      const btn = document.getElementById('mark-complete-btn');
+      btn.disabled = true;
+      btn.innerHTML = '<span class="animate-pulse">Saving...</span>';
+      
+      const existingRecord = dataRecords.find(r => r.letter === currentLetter);
+      
+      if (completedTerms.has(currentLetter) && existingRecord) {
+        const result = await window.dataSdk.delete(existingRecord);
+        if (!result.isOk) {
+          showToast('Failed to update. Please try again.');
+        }
+      } else {
+        if (dataRecords.length >= 999) {
+          showToast('Maximum records reached. Please delete some first.');
+          btn.disabled = false;
+          return;
+        }
+        const result = await window.dataSdk.create({
+          letter: currentLetter,
+          completed: true,
+          quiz_score: 0,
+          newsletter_email: '',
+          subscribed_at: ''
+        });
+        if (!result.isOk) {
+          showToast('Failed to save. Please try again.');
+        }
+      }
+      
+      btn.disabled = false;
+      closeModal();
+    }
+
+    // Update Progress
+    function updateProgress() {
+      const progressBar = document.getElementById('progress-bar');
+      const progressText = document.getElementById('progress-text');
+      
+      const completed = completedTerms.size;
+      const total = 26;
+      const percentage = (completed / total) * 100;
+      
+      if (progressBar) progressBar.style.width = `${percentage}%`;
+      if (progressText) progressText.textContent = `${completed} / ${total} completed`;
+    }
+
+    // Calculator Functions
+    function formatCurrency(num) {
+      return '₹' + num.toLocaleString('en-IN');
+    }
+
+    function calculateSIP() {
+      const amount = parseFloat(document.getElementById('sip-amount').value);
+      const years = parseFloat(document.getElementById('sip-years').value);
+      const rate = parseFloat(document.getElementById('sip-rate').value);
+      
+      document.getElementById('sip-amount-value').textContent = formatCurrency(amount);
+      document.getElementById('sip-years-value').textContent = `${years} years`;
+      document.getElementById('sip-rate-value').textContent = `${rate}%`;
+      
+      const monthlyRate = rate / 12 / 100;
+      const months = years * 12;
+      const futureValue = amount * (((Math.pow(1 + monthlyRate, months) - 1) / monthlyRate) * (1 + monthlyRate));
+      const invested = amount * months;
+      const returns = futureValue - invested;
+      
+      document.getElementById('sip-invested').textContent = formatCurrency(Math.round(invested));
+      document.getElementById('sip-returns').textContent = formatCurrency(Math.round(returns));
+      document.getElementById('sip-total').textContent = formatCurrency(Math.round(futureValue));
+    }
+
+    function calculateEMI() {
+      const principal = parseFloat(document.getElementById('emi-principal').value);
+      const tenure = parseFloat(document.getElementById('emi-tenure').value);
+      const rate = parseFloat(document.getElementById('emi-rate').value);
+      
+      document.getElementById('emi-principal-value').textContent = formatCurrency(principal);
+      document.getElementById('emi-tenure-value').textContent = `${tenure} years`;
+      document.getElementById('emi-rate-value').textContent = `${rate}%`;
+      
+      const monthlyRate = rate / 12 / 100;
+      const months = tenure * 12;
+      const emi = principal * monthlyRate * Math.pow(1 + monthlyRate, months) / (Math.pow(1 + monthlyRate, months) - 1);
+      const totalAmount = emi * months;
+      const totalInterest = totalAmount - principal;
+      
+      document.getElementById('emi-loan').textContent = formatCurrency(principal);
+      document.getElementById('emi-interest').textContent = formatCurrency(Math.round(totalInterest));
+      document.getElementById('emi-monthly').textContent = formatCurrency(Math.round(emi));
+    }
+
+    function calculateCAGR() {
+      const initial = parseFloat(document.getElementById('cagr-initial').value);
+      const final = parseFloat(document.getElementById('cagr-final').value);
+      const years = parseFloat(document.getElementById('cagr-years').value);
+      
+      document.getElementById('cagr-initial-value').textContent = formatCurrency(initial);
+      document.getElementById('cagr-final-value').textContent = formatCurrency(final);
+      document.getElementById('cagr-years-value').textContent = `${years} years`;
+      
+      const cagr = (Math.pow(final / initial, 1 / years) - 1) * 100;
+      const returns = final - initial;
+      const returnPercent = (returns / initial) * 100;
+      
+      document.getElementById('cagr-returns').textContent = formatCurrency(Math.round(returns));
+      document.getElementById('cagr-return-percent').textContent = `${returnPercent.toFixed(0)}%`;
+      document.getElementById('cagr-result').textContent = `${cagr.toFixed(2)}%`;
+    }
+
+    // Quiz Functions
+    function renderQuiz() {
+      const container = document.getElementById('quiz-container');
+      const results = document.getElementById('quiz-results');
+      
+      if (currentQuizIndex >= quizQuestions.length) {
+        container.classList.add('hidden');
+        results.classList.remove('hidden');
+        
+        const correct = quizAnswers.filter((a, i) => a === quizQuestions[i].correct).length;
+        document.getElementById('quiz-score').textContent = correct;
+        return;
+      }
+      
+      container.classList.remove('hidden');
+      results.classList.add('hidden');
+      
+      const question = quizQuestions[currentQuizIndex];
+      document.getElementById('quiz-current').textContent = currentQuizIndex + 1;
+      document.getElementById('quiz-total').textContent = quizQuestions.length;
+      document.getElementById('quiz-question').textContent = question.question;
+      
+      const optionsContainer = document.getElementById('quiz-options');
+      optionsContainer.innerHTML = '';
+      
+      question.options.forEach((option, index) => {
+        const btn = document.createElement('button');
+        btn.className = `quiz-option w-full text-left px-5 py-4 rounded-xl bg-white/5 border border-white/10`;
+        btn.textContent = option;
+        btn.onclick = () => selectAnswer(index);
+        
+        if (quizAnswers[currentQuizIndex] === index) {
+          btn.classList.add('selected');
+        }
+        
+        optionsContainer.appendChild(btn);
+      });
+      
+      document.getElementById('quiz-prev').disabled = currentQuizIndex === 0;
+      document.getElementById('quiz-next').textContent = currentQuizIndex === quizQuestions.length - 1 ? 'Finish' : 'Next';
+    }
+
+    function selectAnswer(index) {
+      quizAnswers[currentQuizIndex] = index;
+      renderQuiz();
+    }
+
+    function nextQuestion() {
+      if (quizAnswers[currentQuizIndex] === undefined) {
+        showToast('Please select an answer');
+        return;
+      }
+      currentQuizIndex++;
+      renderQuiz();
+    }
+
+    function prevQuestion() {
+      if (currentQuizIndex > 0) {
+        currentQuizIndex--;
+        renderQuiz();
+      }
+    }
+
+    function restartQuiz() {
+      currentQuizIndex = 0;
+      quizAnswers = [];
+      renderQuiz();
+    }
+
+    // Toast
+    function showToast(message) {
+      const toast = document.getElementById('toast');
+      document.getElementById('toast-message').textContent = message;
+      toast.classList.remove('translate-y-20', 'opacity-0');
+      toast.classList.add('translate-y-0', 'opacity-100');
+      
+      setTimeout(() => {
+        toast.classList.add('translate-y-20', 'opacity-0');
+        toast.classList.remove('translate-y-0', 'opacity-100');
+      }, 3000);
+    }
+
+    // Newsletter
+    document.getElementById('newsletter-form').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      
+      const email = document.getElementById('newsletter-email').value;
+      const btn = document.getElementById('newsletter-btn');
+      
+      if (!email) return;
+      
+      btn.disabled = true;
+      btn.textContent = 'Subscribing...';
+      
+      if (window.dataSdk) {
+        if (dataRecords.length >= 999) {
+          showToast('Maximum records reached.');
+          btn.disabled = false;
+          btn.textContent = 'Subscribe';
+          return;
+        }
+        
+        const result = await window.dataSdk.create({
+          letter: '',
+          completed: false,
+          quiz_score: 0,
+          newsletter_email: email,
+          subscribed_at: new Date().toISOString()
+        });
+        
+        if (result.isOk) {
+          document.getElementById('newsletter-form').classList.add('hidden');
+          document.getElementById('newsletter-success').classList.remove('hidden');
+        } else {
+          showToast('Subscription failed. Please try again.');
+        }
+      }
+      
+      btn.disabled = false;
+      btn.textContent = 'Subscribe';
+    });
+
+    // Mobile Menu
+    document.getElementById('mobile-menu-btn').addEventListener('click', () => {
+      const menu = document.getElementById('mobile-menu');
+      menu.classList.toggle('hidden');
+      menu.classList.toggle('flex');
+    });
+
+    // Counter Animation
+    function animateCounters() {
+      const counters = document.querySelectorAll('.number-counter');
+      counters.forEach(counter => {
+        const target = parseInt(counter.dataset.target);
+        const duration = 2000;
+        const start = performance.now();
+        
+        function update(currentTime) {
+          const elapsed = currentTime - start;
+          const progress = Math.min(elapsed / duration, 1);
+          const eased = 1 - Math.pow(1 - progress, 3);
+          counter.textContent = Math.floor(target * eased);
+          
+          if (progress < 1) {
+            requestAnimationFrame(update);
+          }
+        }
+        
+        requestAnimationFrame(update);
+      });
+    }
+
+    // Initialize
+    initElementSdk();
+    initDataSdk();
+    renderAZGrid();
+    renderQuiz();
+    calculateSIP();
+    calculateEMI();
+    calculateCAGR();
+    animateCounters();
+    updateProgress();
+  </script>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9bdb9191066f97f7',t:'MTc2ODM3NzMwMS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
